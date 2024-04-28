@@ -1,7 +1,7 @@
-import tool_parser
+import LLMToolParser
 import json
 
-@tool_parser.tool(x = "An integer representing some value.", y = "A floating-point number representing another value.", z = "A string representing a label (default value: 'default').")
+@LLMToolParser.tool(x = "An integer representing some value.", y = "A floating-point number representing another value.", z = "A string representing a label (default value: 'default').")
 def example_function(x: int, y: float, z: str = "default") -> tuple:
     """
     This function takes three parameters and returns them as a tuple.
@@ -16,7 +16,7 @@ def example_function(x: int, y: float, z: str = "default") -> tuple:
     """
     return x, y, z
 
-info = tool_parser.get_tool(example_function)
+info = LLMToolParser.get_tool(example_function)
 print(json.dumps(info, indent = 4))
 
 #{

@@ -1,8 +1,14 @@
 # LLM Tool Parser
 
-The `tool_parser.py` provides a tool for annotating Python functions and their parameters with descriptions for function calling.  
+The `LLMToolParser.py` provides a tool for annotating Python functions and their parameters with descriptions for function calling.  
 This tool is helpful for documenting functions and generating metadata suitable for tooling purposes.  
 Compact, simple and should be pretty eazy to use!
+
+## Install
+Install using pip:
+```bash
+pip install git+https://github.com/pandora-s-git/LLMToolParser.git
+```
 
 ## Usage
 
@@ -21,10 +27,10 @@ The `get_tool` function retrieves metadata about a given function and organizes 
 ## Example
 
 ```python
-import tool_parser
+import LLMToolParser
 import json
 
-@tool_parser.tool(x = "An integer representing some value.", y = "A floating-point number representing another value.", z = "A string representing a label (default value: 'default').")
+@LLMToolParser.tool(x = "An integer representing some value.", y = "A floating-point number representing another value.", z = "A string representing a label (default value: 'default').")
 def example_function(x: int, y: float, z: str = "default") -> tuple:
     """
     This function takes three parameters and returns them as a tuple.
@@ -39,7 +45,7 @@ def example_function(x: int, y: float, z: str = "default") -> tuple:
     """
     return x, y, z
 
-info = tool_parser.get_tool(example_function)
+info = LLMToolParser.get_tool(example_function)
 print(json.dumps(info, indent=4))
 ```
 Output:
