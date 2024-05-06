@@ -36,7 +36,7 @@ print(json.dumps(info, indent = 4))
 #                    "description": "A floating-point number representing another value."
 #                },
 #                "z": {
-#                    "type": "str",
+#                    "type": "string",
 #                    "description": "A string representing a label (default value: 'default')."
 #                }
 #            },

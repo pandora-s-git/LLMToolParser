@@ -52,7 +52,7 @@ def get_tool(func: Callable) -> dict:
 
     for param_name, param in signature.parameters.items():
         param_info = {
-            "type": str(param.annotation).split("'")[1],
+            "type": "string" if str(param.annotation) == "<class 'str'>" else str(param.annotation).split("'")[1],
             "description": func.__parameters_descriptions__.get(param_name, "None")
         }
         properties[param_name] = param_info

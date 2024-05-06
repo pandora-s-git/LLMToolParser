@@ -67,7 +67,7 @@ Output:
                     "description": "A floating-point number representing another value."
                 },
                 "z": {
-                    "type": "str",
+                    "type": "string",
                     "description": "A string representing a label (default value: 'default')."
                 }
             },
