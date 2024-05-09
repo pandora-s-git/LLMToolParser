@@ -1,6 +1,18 @@
 import inspect
 from typing import Callable
 
+TYPE_MAP = {
+    int: "integer",
+    str: "string",
+    float: "float",
+    bool: "boolean",
+    list: "list",
+    tuple: "tuple",
+    dict: "dictionary",
+    set: "set",
+    bytes: "bytes",
+}
+
 def tool(function_description: str = None, required_params: list[str] = [], **parameters_descriptions):
     """
     A decorator to add descriptions to a function and its parameters with the tool format.
@@ -52,7 +64,7 @@ def get_tool(func: Callable) -> dict:
 
     for param_name, param in signature.parameters.items():
         param_info = {
-            "type": "string" if str(param.annotation) == "<class 'str'>" else str(param.annotation).split("'")[1],
+            "type": TYPE_MAP[param.annotation],
             "description": func.__parameters_descriptions__.get(param_name, "None")
         }
         properties[param_name] = param_info
