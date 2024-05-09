@@ -59,7 +59,7 @@ Output:
             "type": "object",
             "properties": {
                 "x": {
-                    "type": "int",
+                    "type": "integer",
                     "description": "An integer representing some value."
                 },
                 "y": {
